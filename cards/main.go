@@ -1,11 +1,12 @@
 package main
 
-func main() {
-	cards := deck{"Six of diamonds", newCard()}
-	cards = append(cards, "Three of glances")
-	cards.print()
-}
+import "fmt"
 
-func newCard() string {
-	return "Five of diamonds"
+func main() {
+	cards := newDeck()
+	hand, remainingDeck := deal(cards, 5)
+	fmt.Println("Your hand")
+	hand.print()
+	fmt.Println("Remainig deck")
+	remainingDeck.print()
 }
