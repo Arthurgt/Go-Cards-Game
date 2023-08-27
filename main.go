@@ -12,4 +12,5 @@ func main() {
 	hand.print()
 	fmt.Println("Remainig deck")
 	remainingDeck.print()
+	cards.saveDeckToFile("my_cards.txt")
 }

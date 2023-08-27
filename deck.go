@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strings"
 )
 
@@ -33,6 +34,6 @@ func (d deck) toString() string {
 	return strings.Join([]string(d), ",")
 }
 
-func saveDeckToFile() {
-
+func (d deck) saveDeckToFile(fileName string) error {
+	return os.WriteFile(fileName, []byte(d.toString()), 0666)
 }
