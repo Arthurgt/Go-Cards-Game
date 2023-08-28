@@ -34,10 +34,21 @@ func (d deck) toString() string {
 	return strings.Join([]string(d), ",")
 }
 
+func toDeck(s string) deck {
+	return strings.Split(s, ",")
+}
+
 func (d deck) saveDeckToFile(fileName string) error {
 	return os.WriteFile(fileName, []byte(d.toString()), 0666)
 }
 
-func readDeckFromFile(fileName string) ([]byte, error) {
-	return os.ReadFile(fileName)
+func readDeckFromFile(fileName string) deck {
+	bs, err := os.ReadFile(fileName)
+	if err != nil {
+		fmt.Println("Error: ", err)
+		os.Exit(1)
+	}
+	bsAsString := string(bs)
+	bsAsDeck := toDeck(bsAsString)
+	return bsAsDeck
 }
