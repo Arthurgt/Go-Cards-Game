@@ -16,4 +16,7 @@ func main() {
 	cardsReadedFromFile := readDeckFromFile("my_cards.txt")
 	fmt.Println("Deck readed")
 	cardsReadedFromFile.print()
+	cardsReadedFromFile.shuffle()
+	fmt.Println("Shuffled deck")
+	cardsReadedFromFile.print()
 }
