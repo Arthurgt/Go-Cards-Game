@@ -13,4 +13,11 @@ func main() {
 	fmt.Println("Remainig deck")
 	remainingDeck.print()
 	cards.saveDeckToFile("my_cards.txt")
+	cardsReadedFromFile, error := readDeckFromFile("my_cards.txt")
+	if error != nil {
+		fmt.Println("Error: " + error.Error())
+	} else {
+		fmt.Println("Deck readed: " + string(cardsReadedFromFile))
+	}
+
 }

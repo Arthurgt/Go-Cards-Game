@@ -37,3 +37,7 @@ func (d deck) toString() string {
 func (d deck) saveDeckToFile(fileName string) error {
 	return os.WriteFile(fileName, []byte(d.toString()), 0666)
 }
+
+func readDeckFromFile(fileName string) ([]byte, error) {
+	return os.ReadFile(fileName)
+}
