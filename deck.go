@@ -17,6 +17,7 @@ func (d deck) print() {
 }
 
 func newDeck() deck {
+	fmt.Println("Creating new deck")
 	cards := deck{}
 	cardSuits := []string{"Spades", "Hearts", "Diamonds", "Clubs"}
 	cardValues := []string{"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "King", "Queen", "Jack"}
@@ -29,6 +30,7 @@ func newDeck() deck {
 }
 
 func deal(d deck, handSize int) (deck, deck) {
+	fmt.Println("Dealing cards")
 	return d[:handSize], d[handSize:]
 }
 
@@ -41,10 +43,12 @@ func toDeck(s string) deck {
 }
 
 func (d deck) saveDeckToFile(fileName string) error {
+	fmt.Println("Saving deck to the disk")
 	return os.WriteFile(fileName, []byte(d.toString()), 0666)
 }
 
 func readDeckFromFile(fileName string) deck {
+	fmt.Println("Reading deck from the disk")
 	bs, err := os.ReadFile(fileName)
 	if err != nil {
 		fmt.Println("Error: ", err)
@@ -56,6 +60,7 @@ func readDeckFromFile(fileName string) deck {
 }
 
 func (d deck) shuffle() {
+	fmt.Println("Shuffling deck")
 	source := rand.NewSource(time.Now().UnixNano())
 	r := rand.New(source)
 
